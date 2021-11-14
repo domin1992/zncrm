@@ -13,6 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        if(env('APP_ENV') == 'local'){
+            $this->call([
+                UserSeeder::class,
+                ContractorSeeder::class,
+                SubscriptionSeeder::class,
+            ]);
+        }
+
+        $this->call([
+            SubscriptionTypeSeeder::class,
+            SubscriptionPackageSeeder::class,
+        ]);
     }
 }

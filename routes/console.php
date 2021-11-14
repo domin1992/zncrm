@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('test', function () {
+    \App\Jobs\SubscriptionsReneval::dispatch();
+    // $ii = new \App\Integrations\IfirmaIntegration;
+    // dd($ii->findContractor('7261830224'));
+});
